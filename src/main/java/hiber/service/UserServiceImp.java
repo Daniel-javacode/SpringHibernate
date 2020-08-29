@@ -29,11 +29,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public List<User> listUsersCars(int carSeries) {
-        TypedQuery<User> query = userDao.getSessionFactory()
-                .getCurrentSession()
-                .createQuery("from User where car.series = :paramName");
-        query.setParameter("paramName", carSeries);
-        return query.getResultList();
+        return userDao.listUsersCars(carSeries);
     }
 
 }
